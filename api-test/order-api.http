@@ -1,0 +1,5 @@
+### 订单测试
+GET  {{order_host}}/order/101
+
+### usr设置
+GET {{usr_host}}/user/1
