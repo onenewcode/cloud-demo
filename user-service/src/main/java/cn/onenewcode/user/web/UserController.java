@@ -1,5 +1,6 @@
 package cn.onenewcode.user.web;
 
+import cn.onenewcode.user.config.PatternProperties;
 import cn.onenewcode.user.pojo.User;
 import cn.onenewcode.user.service.UserService;
 import com.alibaba.nacos.api.config.annotation.NacosValue;
@@ -17,8 +18,12 @@ import java.time.format.DateTimeFormatter;
 public class UserController {
     @Autowired
     private UserService userService;
-    @Value("${pattern.dateformat}")
-    private String dateformat;
+//    @Value("${pattern.dateformat}")
+//    private String dateformat;  @Autowired
+
+    @Autowired
+    private PatternProperties patternProperties;
+
 
     /**
      * 路径： /user/110
@@ -32,8 +37,6 @@ public class UserController {
     }
     @GetMapping("now")
     public String now(){
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(dateformat));
-
-
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(patternProperties.getDateformat()));
     }
 }
