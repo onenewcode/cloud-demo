@@ -3,3 +3,6 @@ GET  {{order_host}}/order/101
 
 ### usr设置
 GET {{usr_host}}/user/1
+
+### getway设置
+GET {{geteway_host}}/user/1
